@@ -1,0 +1,15 @@
+[general]
+name=Cuadro de Construcción
+qgisMinimumVersion=4.2
+description=Generación de cuadros de construcción a partir de polígonos
+version=0.1.0
+author=J. Israel Villarreal B.
+email=israelbar@gmail.com
+about=Complemento de QGIS para generar cuadros de construcción en CSV y HTML.
+tracker=https://github.com/israelbar/Cuadro-de-Construccion/issues
+repository=https://github.com/israelbar/Cuadro-de-Construccion
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
+qgisMaximumVersion=4.99
