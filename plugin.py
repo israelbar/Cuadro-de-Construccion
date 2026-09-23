@@ -4,8 +4,10 @@
 import csv
 import html
 import math
+import os
 
 from qgis.PyQt.QtCore import QDir, QFileInfo, QSettings, Qt
+from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import (
     QAction,
     QComboBox,
@@ -770,14 +772,15 @@ class CuadroDeConstruccionPlugin:
         self.action = None
 
     def initGui(self):
-        self.action = QAction("Cuadro de Construcción", self.iface.mainWindow())
+        icon_path = os.path.join(os.path.dirname(__file__), "icon.png")
+        self.action = QAction(QIcon(icon_path), "Cuadro de Construcción", self.iface.mainWindow())
         self.action.triggered.connect(self.run)
         self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToMenu("Cuadro de Construcción", self.action)
+        self.iface.addPluginToVectorMenu("Cuadro de Construcción", self.action)
 
     def unload(self):
         if self.action is not None:
-            self.iface.removePluginMenu("Cuadro de Construcción", self.action)
+            self.iface.removePluginVectorMenu("Cuadro de Construcción", self.action)
             self.iface.removeToolBarIcon(self.action)
             self.action.deleteLater()
             self.action = None
